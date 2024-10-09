@@ -1,0 +1,20 @@
+name: CI
+run-name: Run ${{ github.run_id }} of branch ${{ github.event.pull_request.head.ref || github.ref_name }}
+
+on:
+  push:
+    tags:
+      - v**
+    branches:
+      - master
+
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  release:
+    if: (github.event.pull_request.head.ref || github.ref_name) == 'master' && github.event_name == 'push'
+    uses: ./.github/workflows/release.yml
+    secrets: inherit
