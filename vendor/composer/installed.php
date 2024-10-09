@@ -3,7 +3,7 @@
         'name' => 'assuncaofranco/test-library',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '368ca244f6f19008d1c73efb57676c5ab767a63c',
+        'reference' => '9c77f3c4d6e2cf3f91b6522fc1aa2f92977349b3',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'assuncaofranco/test-library' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '368ca244f6f19008d1c73efb57676c5ab767a63c',
+            'reference' => '9c77f3c4d6e2cf3f91b6522fc1aa2f92977349b3',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
