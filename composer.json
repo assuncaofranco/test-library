@@ -14,8 +14,7 @@
         "psr/log": "^1|^2|^3",
         "symfony/deprecation-contracts": "2.5.*",
         "symfony/var-exporter": "^5.0|^6.0",
-        "lancasters/curl-library": "2.*",
-        "assuncaofranco/test-library": "^1.0"
+        "lancasters/curl-library": "2.*"
     },
     "autoload": {
         "psr-4": { "": "src/" }
