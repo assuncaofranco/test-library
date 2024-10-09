@@ -1,12 +1,6 @@
 {
-    "name": "lancasters/tests-library",
+    "name": "assuncaofranco/test-library",
     "description": "Tests library",
-    "repositories": [
-        {
-		"type": "composer",
-		"url": "https://repo.packagist.com/lancastersolutions/"
-	}
-    ],
     "require": {
         "symfony/monolog-bundle": "^3.1",
         "symfony/yaml": "^4.0|^5.0|^6.0",
@@ -17,10 +11,15 @@
         "lancasters/curl-library": "2.*"
     },
     "autoload": {
-        "psr-4": { "": "src/" }
+        "psr-4": {
+            "": "src/"
+        }
     },
     "autoload-dev": {
-        "psr-4": { "Tests\\": "tests/" }
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
     },
-    "license": "Proprietary"
+    "license": "Proprietary",
+    "version": "1.0.0"
 }
