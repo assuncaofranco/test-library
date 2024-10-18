@@ -19,7 +19,7 @@
             "Tests\\": "tests/"
         }
     },
-    "license": "Proprietary",
+    "license": "proprietary",
     "repositories": [
         {
             "type": "vcs",
