@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Scenario\ClientTrait;
+namespace AssuncaoFranco\TestLibrary\Scenario\ClientTrait;
 
 
 use CurlLibrary\ClientTest;
