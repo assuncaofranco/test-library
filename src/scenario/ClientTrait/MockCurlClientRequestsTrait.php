@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Scenario\ClientTrait;
+
 
 use CurlLibrary\ClientTest;
 use Symfony\Component\HttpFoundation\Request;
