@@ -1,15 +1,9 @@
 <?php
 
-namespace Crm\Client;
+namespace Crm;
 
-use CurlLibrary\ClientTest;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-
-class MockCurlClientRequestManager
+class CrmMockData
 {
-    protected static array $mockedData = [];
-
     public static string $customer = <<<JSON
         {
             "id": 1,
@@ -172,7 +166,7 @@ class MockCurlClientRequestManager
             "watchlist": "to_screen",
             "crimelist": "to_screen"
         }
-        JSON;
+    JSON;
 
     public static string $vipLevels = <<<JSON
         [
@@ -192,7 +186,7 @@ class MockCurlClientRequestManager
                 "name": "Gold"
             }
         ]
-        JSON;
+    JSON;
 
     public static string $segment = <<<JSON
         {
@@ -215,79 +209,5 @@ class MockCurlClientRequestManager
                 }
             ]
         }
-        JSON;
-
-    public static function clearMockedClientRequests(): void
-    {
-        ClientTest::$mockedData = self::$mockedData = [];
-    }
-
-    public static function mockGetVipLevels(int $domainId): void
-    {
-        self::$mockedData[] = [
-            'method' => Request::METHOD_GET,
-            'url' => "http://memberzoneweb.docker/en/api/domain/{$domainId}/vip_levels",
-            'code' => Response::HTTP_OK,
-            'data' => self::$vipLevels,
-        ];
-    }
-
-    public static function mockPatchCustomer(int $customerId): void
-    {
-        $customer = json_decode(self::$customer, true);
-        $customer['id'] = $customerId;
-
-        self::$mockedData[] = [
-            'method' => Request::METHOD_PATCH,
-            'url' => "http://memberzoneweb.docker/en/api/customer/{$customerId}",
-            'code' => Response::HTTP_INTERNAL_SERVER_ERROR,
-            'data' => json_encode($customer),
-        ];
-    }
-
-    public static function mockGetCustomer(int $customerId): void
-    {
-        $customer = json_decode(self::$customer, true);
-        $customer['id'] = $customerId;
-
-        self::$mockedData[] = [
-            'method' => Request::METHOD_GET,
-            'url' => "http://memberzoneweb.docker/en/api/customer/{$customerId}",
-            'code' => Response::HTTP_OK,
-            'data' => json_encode($customer),
-        ];
-    }
-
-    public static function mockGetSegment(int $segmentId): void
-    {
-        self::$mockedData[] = [
-            'method' => Request::METHOD_GET,
-            'url' => "http://memberzoneweb.docker/en/api/segment/{$segmentId}",
-            'code' => Response::HTTP_OK,
-            'data' => self::$segment,
-        ];
-    }
-
-    public static function mockGetSegmentWithCustomers(int $segmentId): void
-    {
-        self::$mockedData[] = [
-            'method' => Request::METHOD_GET,
-            'url' => "http://memberzoneweb.docker/en/api/segment/{$segmentId}/customers",
-            'code' => Response::HTTP_OK,
-            'data' => self::$segment,
-        ];
-    }
-
-    public static function mockGetDomain(int $domainId): void
-    {
-        self::$mockedData[] = [
-            'method' => Request::METHOD_GET,
-            'url' => "http://memberzoneweb.docker/en/api/domain/{$domainId}",
-            'code' => Response::HTTP_OK,
-            'data' => json_encode([
-                'id' => $domainId,
-                'name' => 'Test Domain'
-            ]),
-        ];
-    }
+    JSON;
 }
