@@ -1,6 +1,6 @@
 <?php
 
-namespace TestLibrary\Crm\Client;
+namespace Crm\Client;
 
 use CurlLibrary\ClientTest;
 use Symfony\Component\HttpFoundation\Request;
